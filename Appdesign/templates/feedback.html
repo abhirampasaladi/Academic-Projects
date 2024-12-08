@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Feedback Form</h1>
+<form method="post">
+    {{ form.hidden_tag() }}
+    <p>{{ form.name.label }} {{ form.name() }}</p>
+    <p>{{ form.email.label }} {{ form.email() }}</p>
+    <p>{{ form.feedback.label }} {{ form.feedback() }}</p>
+    <p>{{ form.submit() }}</p>
+</form>
+{% endblock %}
